@@ -13,6 +13,9 @@
 </head>
 <body>
     <div id="wrap">
+        <div id="skipNavi">
+            <a href="#container">본문바로가기</a>
+        </div>
         <header id="header">
             <!-- 검색영역 시작-->
             <div class="search_zone">
@@ -84,7 +87,7 @@
                     </li>
                 </ul>
                 <ul class="util">
-                    <li class="search_btn"><a href="#" onclick="return false">검색</a></li>
+                    <li class="search_btn"><a href="#search_zone">검색</a></li>
                     <li class="user_btn"><a href="login.html">회원정보</a></li>
                     <li class="lang_btn">
                         <a href="#" onclick="return false">랭귀지</a>
@@ -202,21 +205,138 @@
             </div>
         </header>
         <div class="sub_container servicecenter_container">
-            <h2>OVERVIEW</h2>
-            <div class="sub_menu_wrap">
-                <ul class="sub_menu">
-                    <li><a href="#">OVERVIEW</a></li>
-                    <li><a href="#">상담접수</a></li>
-                    <li><a href="#">자주 묻는 질문</a></li>
-                    <li><a href="#">공장견학</a></li>
-                    <li><a href="#">오시는길</a></li>
-                </ul>
-            </div>
-            <div class="servicecenter_inner">
-
+            <div class="sub_wrap servicecenter_container_wrap">
+                <div class="sub_inner">
+                    <div class="sub_menu_wrap">
+                        <ul class="sub_menu">
+                            <li><a href="javascript:history.back();" class="back_btn">뒤로가기</a></li>
+                            <li class="active"><a href="#">OVERVIEW</a></li>
+                            <li><a href="#">상담접수</a></li>
+                            <li><a href="#">자주 묻는 질문</a></li>
+                            <li><a href="#">공장견학</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+                    </div>
+                    <div class="text_wrap">
+                        <h2 class="sub_tit">OVERVIEW</h2>
+                    </div>
+                </div>
+            <!-- -------------------고객 문의 프로세스 영역 시작 -->
+                <section class="process">
+                    <div class="process_inner">
+                        <h2 class="sub_tit">고객 문의 프로세스</h2>
+                        <div class="process_img">프로세스 이미지 영역</div>
+                    </div>
+                </section>
+                <!-- -------------------고객 문의 프로세스 영역 끝 -->
+                <!-- ------------------고객 문의 방법 영역 시작------------- -->
+                <section class="howto">
+                    <div class="howto_inner">
+                        <h2 class="sub_tit">고객 문의 방법</h2>
+                        <ul class="howto_list">
+                            <li>
+                                <div class="txt_wrap">
+                                    <h3>무료 상담전화</h3>
+                                    <p class="sub_txt1">
+                                        080-023-5181
+                                    </p>
+                                    <p class="sub_txt2">
+                                        평일: 오전 9시 ~오후 6시<br>
+                                        토/일요일: 오전 9시 ~ 오후 5시
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="txt_wrap">
+                                    <h3>FAX·우편 접수</h3>
+                                    <p class="sub_txt1">
+                                        02-820-7619
+                                    </p>
+                                    <p class="sub_txt2">
+                                        서울특별시 동작구<br>
+                                        여의대방로 112 (신대방동)
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="txt_wrap">
+                                    <h3>홈페이지 상담</h3>
+                                    <a href="#" class="receipt_btn">상담접수</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="txt_wrap">
+                                    <h3>LINE 1:1 상담</h3>
+                                    <p class="sub_txt1">
+                                        @nongshim
+                                    </p>
+                                    <p class="sub_txt2">
+                                        평일: 오전 9시 ~오후 6시<br>
+                                        토/일요일: 오전 9시 ~ 오후 5시
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- ------------------고객 문의 방법 영역 끝------------- -->
+                <!-- ----------------------- 자주 묻는 질문 영역 시작------------- -->
+                <section class="qna">
+                    <div class="qna_inner">
+                        <div class="text_wrap">
+                            <h2 class="sub_tit">자주 묻는 질문</h2>
+                            <a href="#" class="more_btn">더보기</a>
+                        </div>
+                        <table>
+                            <caption>농심의 자주 묻는 질문 게시판</caption>
+                            <tr>
+                                <td>전체</td>
+                                <td>
+                                    <a href="#">새우깡과 매운 새우깡의 열량이 차이가 나는 이유는 매운 맛 때문인가요?</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>국내영업</td>
+                                <td>
+                                    <a href="#">제품을 구매해서 보관하던 중 유통기한을 초과하였습니다.</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>국내영업</td>
+                                <td>
+                                    <a href="#">[전체]유통기한 경과제품은 농심에서 교환해 줍니까?</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>기타</td>
+                                <td>
+                                    <a href="#">[전체]새우깡 출시 연도가 궁금합니다.</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                </section> 
+                <!-- ----------------------- 자주 묻는 질문 영역 끝------------- -->
+                <!-- 공장견학 영역 시작 ---------------------------------------- -->
+                <section class="factory">
+                    <div class="factory_inner">
+                        <div class="factory_wrap">
+                            <div class="text_wrap">
+                                <h3>공장견학</h3>
+                                <p>전국 공장의 견학을 신청하실 수 있습니다.<br>
+                                    생산부터 모든 과정의 설명도 포함된<br>
+                                    체험견학, 일반견학도 가능합니다.
+                                </p>
+                                <a href="#" class="factory_more_btn"><span>일정 확인하기</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- 공장견학 영역 끝---------------------------------------- -->
             </div>
         </div>
-        <footer id="footer">
+        <footer id="footer" class="servicecenter_footer">
             <div class="top_footer">
                 <div class="inner">
                     <ul class="link">
