@@ -105,6 +105,7 @@ body.on { overflow: hidden;}
     color: #c9c4c4;
     font-size: 18px;
     padding-bottom: 46px;
+    font-weight: 500;
 }
 
 .sub_tit {
@@ -114,9 +115,9 @@ body.on { overflow: hidden;}
     color: #000;
 }
 
-.sub_txt {
+/* .sub_txt {
 
-}
+} */
 
 
 
@@ -153,7 +154,7 @@ body.on { overflow: hidden;}
     height: 1px;
     background: #e5e5e5;
     position: absolute;
-    top: 89x;
+    top: 0;
     left: 0;
 }
 
@@ -918,7 +919,13 @@ body.on { overflow: hidden;}
 
 
 #container .nlive_center .inner .main_tit {
-    color: #000;
+    color: #e6001e;
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+#container .nlive_center .inner .main_txt {
+    color: #999;
     opacity: 0;
     transform: translateY(100px);
 }
@@ -1712,6 +1719,7 @@ body.on { overflow: hidden;}
     color: red;
     font-size: 24px;
     font-weight: 700;
+    margin-right: 50px;
 }
 
 .notice_popup .notice_wrap .notice .text_wrap label .checkbox_icon {
@@ -2028,6 +2036,208 @@ body.on { overflow: hidden;}
     background-position: -220px 0;
 }
 
+/* ********************* 로그인 > 회원가입 스텝 1 영역 시작************* */
+.account_join_container .account_join_inner {
+    width: 1200px;
+    margin: 0 auto;
+    height: 1000px;
+}
+
+.account_join_container .text_wrap {
+    padding-top: 84px;
+}
+
+.account_join_container .step_list {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 47px;
+
+}
+
+.account_join_container .step_list li {
+    float: left;
+    width: 90px;
+    height: 143px;
+    margin-right: 249px;
+}
+.account_join_container .step_list li:first-child {
+    margin-left: 216px;
+}
+.account_join_container .step_list li:last-child {
+    margin-right: 216px;
+}
+
+.account_join_container .step_list li .img_wrap {
+    width: 90px;
+    height: 90px;
+    border: 3px solid #eae8ed;
+    border-radius: 50%;
+    text-indent: -9999px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.account_join_container .step_list li.active .img_wrap {
+    border-color: #96c11f;
+}
+
+.account_join_container .step_list li .img_wrap:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 22px;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-50%);
+    background: url(../images/signup/step.png) no-repeat;
+    background-position: 0 -0;
+}
+
+.account_join_container .step_list li.active .img_wrap:after {
+    background-position: 0 -68px;
+    width: 46px;
+}
+
+.account_join_container .step_list li:nth-child(2) .img_wrap:after {
+    background-position: -61px 0;
+    left: 16px;
+}
+
+.account_join_container .step_list li:nth-child(3) .img_wrap:after {
+    background-position: -127px 0;
+    width: 42px;
+}
+
+.account_join_container .step_list li .text_wrap {
+    padding-top: 14px;
+}
+
+.account_join_container .step_list li .text_wrap {
+    line-height: 1.2;
+    text-align: center;
+    color: #b8b8b8;
+    font-weight: 700;
+}
+
+.account_join_container .step_list li.active .text_wrap {
+    color: #e20601;
+}
+
+/* 약관동의 */
+
+.account_join_container .agree {
+    padding-bottom: 100px;
+}
+
+.account_join_container .agree .text_wrap {
+    overflow: hidden;
+    padding: 87px 0 21px;
+}
+
+.account_join_container .agree .text_wrap h3 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #000;
+    float: left;
+}
+
+.account_join_container .agree .text_wrap .checkbox_wrap {
+    float: right;
+    margin-top: 26px;
+}
+
+.account_join_container .agree .agree_all_text {
+    color: #000;
+}
+
+.account_join_container .agree .account_checkbox {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background: #fff;
+    border: 1px solid #9b9b9b;
+    vertical-align: -3px;
+    position: relative;
+}
+
+.account_join_container .agree .account_checkbox:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 15px;
+    background: url(../images/signup/checked.png) no-repeat;
+    transition: all 0.3s;
+}
+
+.account_join_container .agree input[type="checkbox"] {
+    display: none;
+}
+
+.account_join_container .agree .agree_list {
+    width: 100%;
+    border-top: 1px solid #ddd;
+    padding-bottom: 21px;
+}
+
+.account_join_container .agree .agree_list li {
+    width: 100%;
+    display: inline-block;
+    padding: 0 20px 0 30px;
+    box-sizing: border-box;
+    line-height: 60px;
+    border: 1px solid #ddd;
+    border-top: 0;
+}
+
+
+.account_join_container .agree .agree_txt {
+    color: #000;
+}
+
+.account_join_container .agree .agree_list li .agree_txt .required {
+    color: #e20601;
+}
+
+.account_join_container .agree .agree_list li .agree_right {
+float: right;
+}
+
+.account_join_container .agree .agree_list li .agree_right .terms_btn {
+    text-align: right;
+    /* padding-right: 27px; */
+}
+
+.account_join_container .agree .agree_list li .agree_right .terms_btn:after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 17px;
+    background: url(../images/signup/terms_pop.png) no-repeat;
+    margin-left: 11px
+}
+
+
+.account_join_container .agree .agree_list li .agree_right .account_checkbox {
+    margin-left: 29px;
+}
+
+
+
+
+
+/* ************************약관동의 on 처리*************************** */
+.account_join_container .agree.on .checkbox_wrap label .account_checkbox:after {
+    width: 21px;
+}
+
+.dimm.account_dimm {
+    display: none;
+}
+
+
+
 
 /* *********************서브페이지 공통**************************** */
 .sub_container {
@@ -2169,7 +2379,6 @@ body.on { overflow: hidden;}
 }
 
 .servicecenter_container .howto .sub_tit {
-    font-size: 50px;
     padding-top: 81px;
 }
 

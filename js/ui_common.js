@@ -296,7 +296,7 @@ front = {
     var idx = 0;
 
     while(idx < front.contents.length) {
-      posArr.push(front.contents.eq(idx).offset().top - 500);
+      posArr.push(front.contents.eq(idx).offset().top - 800);
       idx++;
     }
 
@@ -304,7 +304,7 @@ front = {
       front.contents.eq(1).addClass('on');
     } else if (front._scrollTop >= posArr[2] && front._scrollTop < posArr[3]) {
       front.contents.eq(2).addClass('on');
-    } else if (front._scrollTop >= posArr[4] && front._scrollTop < posArr[5]) {
+    } else if (front._scrollTop >= posArr[4] + 100 && front._scrollTop < posArr[5]) {
       front.contents.eq(5).addClass('on');
     } else if (front._scrollTop === 0) {
       front.contents.removeClass('on');
