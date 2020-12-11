@@ -18,6 +18,9 @@ front = {
     front.allMenu();
     front.noticePopup();
     front.contents = $('#container section');
+    front.agreePop();
+    front.agreeCheckBox();
+    front.history = $('.history_list .history_img');
   },
 
   headerUi: function() {
@@ -46,7 +49,6 @@ front = {
 
     $('#container, #footer').click(function() {
       lang.fadeOut();
-      // $('#header').css('top','0');
     });
 
   },
@@ -90,7 +92,7 @@ front = {
 
   nongSlider: function() {   
     var nongSwiper = new Swiper('.nong_tv_slider', {
-      slidesPerView: 3,
+      slidesPerView: '2.7',
       // initialSlide: 1,
       spaceBetween: 80,
       centeredSlides: true,
@@ -141,7 +143,7 @@ front = {
 
       var idx = $(this).index();
 
-      console.log(brandList.index());
+      // console.log(brandList.index());
       brandList.eq(idx).show().siblings('.brand_list_bottom').hide();
     });
 
@@ -223,7 +225,9 @@ front = {
 
     fsListBtn.on('click', function(e) {
       e.preventDefault();
-      fsList.slideToggle();
+      // fsList.slideToggle();
+      $('.family_site').toggleClass('on');
+      fsList.toggle();
     });
     
   },
@@ -260,12 +264,13 @@ front = {
     
     sitemapBtn.on('click', function(e) {
       e.preventDefault();
-      sitemap.fadeIn(300);
+      sitemap.addClass('on');
       $('body').addClass('on');
     });
     sitemapCloseBtn.on('click', function(e) {
       e.preventDefault();
-      sitemap.fadeOut(300);
+      sitemap.removeClass('on');
+      // sitemap.fadeOut(300);
       $('body').removeClass('on');
     });
 
@@ -290,13 +295,13 @@ front = {
   },
 
   scrollMain: function () {
-    // console.log(front._scrollTop);
+    console.log(front._scrollTop);
 
     var posArr = [];
     var idx = 0;
 
     while(idx < front.contents.length) {
-      posArr.push(front.contents.eq(idx).offset().top - 800);
+      posArr.push(front.contents.eq(idx).offset().top - 600);
       idx++;
     }
 
@@ -304,13 +309,146 @@ front = {
       front.contents.eq(1).addClass('on');
     } else if (front._scrollTop >= posArr[2] && front._scrollTop < posArr[3]) {
       front.contents.eq(2).addClass('on');
-    } else if (front._scrollTop >= posArr[4] + 100 && front._scrollTop < posArr[5]) {
+    } else if (front._scrollTop >= posArr[4] - 1000 && front._scrollTop < posArr[5] - 200) {
       front.contents.eq(5).addClass('on');
     } else if (front._scrollTop === 0) {
       front.contents.removeClass('on');
     }
 
+    // 연혁
+    while(idx < front.history.length) {
+      posArr.push(front.history.eq(idx).offset().top - 500);
+      idx++;
+    }
+      //2790
+      console.log(front._scrollTop + 400);
+
+      if(front._scrollTop >= posArr[0] && front._scrollTop < posArr[1]) {
+        front.history.eq(0).addClass('on');
+      } else if (front._scrollTop >= posArr[1] && front._scrollTop < posArr[2]) {
+        front.history.eq(1).addClass('on');
+      } else if (front._scrollTop >= posArr[2]){
+        front.history.eq(2).addClass('on');
+      } 
   },
+
+  // 약관 동의 팝업 레이어
+  agreePop: function () {
+    var agreePopup = $('.account_join_container .agree_pop .inner');
+    var agreeBtn = $('.account_join_container .terms_btn');
+    var closeBtn = $('.account_join_container .agree_pop .inner .close_btn');
+    var dimm = $('.dimm');
+
+    agreeBtn.on('click', function(e) {
+      e.preventDefault();
+      var idx = agreeBtn.index(this);
+
+      agreePopup.eq(idx).fadeIn();
+      dimm.addClass('on');
+    });
+
+    closeBtn.on('click', function(e) {
+      e.preventDefault();
+      agreePopup.fadeOut();
+      dimm.removeClass('on');
+    });
+  },
+
+  // 약관 동의 체크
+  agreeCheckBox: function () {
+    var agreeAllCheck = $('.agree .all_agree_btn input[id="allAgree"]');
+    var agreeList = $('.agree .agree_list li');
+    var agreeListCheckBtn = $('.agree_list li label');
+    var agreeListCheck = $('.agree_list li label input[type="checkbox"]');
+
+    // 모두 동의 버튼 클릭 시!
+    $('.agree .all_agree_btn').on('click', function() {
+
+      if(agreeAllCheck.prop('checked')) {
+        $('.agree').addClass('on');
+        agreeList.addClass('on');
+        agreeListCheck.prop('checked', true);
+      } else {
+        $('.agree').removeClass('on');
+        agreeList.removeClass('on');
+        agreeListCheck.prop('checked', false);
+      } 
+    });
+
+
+    agreeListCheckBtn.on('click', function(e) {
+      e.preventDefault();
+      var idx = agreeListCheckBtn.index(this);
+
+
+      // console.log(idx);
+      // console.log(agreeList.eq(idx));
+
+      if(!!agreeListCheck.eq(idx).prop('checked')) {
+        agreeListCheck.eq(idx).prop('checked',false);
+        agreeList.eq(idx).removeClass('on');
+      } else {
+          agreeListCheck.eq(idx).prop('checked',true);
+          agreeList.eq(idx).addClass('on');
+      }
+    });
+
+      //  인증수단 체크 영역
+      var labelTab = $('.certification .certification_wrap label');
+      var labelTabCheck = $('.certification .certification_wrap label input[type="radio"]');
+      var labelAgree = $('.account_join_container .certification .identification_wrap');
+
+
+      // 내국인 외국인 체크
+      labelTab.on('click', function(e) {
+        e.preventDefault()
+        var idx2 = labelTab.index(this);
+        console.log(labelAgree.eq(idx2));
+
+        labelTab.eq(idx2).addClass('on').siblings().removeClass('on');
+        labelTabCheck.eq(idx2).prop('checked', true).siblings().prop('checked', false);
+        labelAgree.eq(idx2).addClass('on').siblings().removeClass('on');
+        $('.account_join_container .phone_identification_wrap label').removeClass('on');
+      });
+
+      // 휴대폰 아이핀 인증 체크 버튼
+      var phoneBtn = $('.account_join_container .phone_identification_wrap label');
+      var phonecheck = $('.account_join_container .phone_identification_wrap label input[type="radio"]');
+      var phonecheckOn = $('.account_join_container .phone_identification_wrap');
+
+      phoneBtn.on('click', function(e) {
+        e.preventDefault()
+        var idx3 = phoneBtn.index(this);
+        // console.log(phoneBtn.eq(idx3));
+        // console.log(idx3);
+
+        phoneBtn.eq(idx3).addClass('on').siblings().removeClass('on');
+        phonecheck.eq(idx3).prop('checked', true).siblings().prop('checked', false);
+        // phonecheckOn.eq(idx3).addClass('on').siblings().removeClass('on');
+      });
+
+      // 회원가입 스텝2, 정보수신 동의 체크 영역
+      var receCheckBtn = $('.receiving_consent .receiving_check');
+      var receCheck = $('.receiving_consent .receiving_check input[type="checkbox"]');
+
+      receCheckBtn.on('click', function() {
+        var idx4 =  receCheckBtn.index(this);
+
+        console.log(idx4)
+        
+        if(!!receCheck.eq(idx4).prop('checked')) {
+          receCheckBtn.eq(idx4).removeClass('on');
+          receCheck.eq(idx4).prop('checked', false);
+        } else {
+          receCheckBtn.eq(idx4).addClass('on');
+          receCheck.eq(idx4).prop('checked', true);
+        }
+
+      });
+
+  },
+
+
 };
 
 
@@ -319,12 +457,8 @@ front = {
 $(document).ready(function() {
   front.init();
 
-  
-  $('.body').addClass('on');
-  // $('.dimm').show().css('z-index', '10000');
-  $('.dimm').addClass('on');
-  $('.notice_popup').fadeIn(300);
 
+  
   $(window).scroll(function() {
     front._scrollTop = $(document).scrollTop();  
 

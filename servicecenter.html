@@ -84,7 +84,7 @@
                     <li class="active">
                         <a href="servicecenter.html">고객지원</a>
                         <ul class="depth2">
-                            <li><a href="#">OVERVIEW</a></li>
+                            <li><a href="servicecenter.html">OVERVIEW</a></li>
                             <li><a href="#">상담접수</a></li>
                             <li><a href="#">자주 묻는 질문</a></li>
                             <li><a href="#">공장견학</a></li>
@@ -157,9 +157,9 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">고객지원</a>
+                                <a href="servicecenter.html">고객지원</a>
                                 <ul class="depth2">
-                                    <li><a href="#">OVERVIEW</a></li>
+                                    <li><a href="servicecenter.html">OVERVIEW</a></li>
                                     <li><a href="#">상담접수</a></li>
                                     <li><a href="#">자주 묻는 질문</a></li>
                                     <li><a href="#">공장견학</a></li>
@@ -210,33 +210,32 @@
                 </div>
             </div>
         </header>
-        <div class="sub_container servicecenter_container">
-            <div class="sub_wrap servicecenter_container_wrap">
-                <div class="sub_inner">
-                    <div class="sub_menu_wrap">
-                        <ul class="sub_menu">
-                            <li><a href="javascript:history.back();" class="back_btn">뒤로가기</a></li>
+        <div id="container" class="sub_container servicecenter_container">
+                <div class="lnb_wrap">
+                    <div class="sub_visual">
+                        <ul class="lnb">
+                            <li><a href="#" class="btn_back" onclick="history.back(); return false">뒤로가기</a></li>
                             <li class="active"><a href="#">OVERVIEW</a></li>
                             <li><a href="#">상담접수</a></li>
                             <li><a href="#">자주 묻는 질문</a></li>
                             <li><a href="#">공장견학</a></li>
                             <li><a href="#">오시는길</a></li>
                         </ul>
-                    </div>
-                    <div class="text_wrap">
-                        <h2 class="sub_tit">OVERVIEW</h2>
+                        <div class="text_wrap">
+                            <h2 class="sub_tit">OVERVIEW</h2>
+                        </div>
                     </div>
                 </div>
-            <!-- -------------------고객 문의 프로세스 영역 시작 -->
-                <section class="process">
+                <!-- ---고객 문의 프로세스 영역-->
+                <div class="process">
                     <div class="process_inner">
                         <h2 class="sub_tit">고객 문의 프로세스</h2>
                         <div class="process_img">프로세스 이미지 영역</div>
                     </div>
-                </section>
-                <!-- -------------------고객 문의 프로세스 영역 끝 -->
-                <!-- ------------------고객 문의 방법 영역 시작------------- -->
-                <section class="howto">
+                </div>
+                <!-- ---고객 문의 프로세스 영역 // -->
+                <!-- ---고객 문의 방법 영역 -->
+                <div class="howto">
                     <div class="howto_inner">
                         <h2 class="sub_tit">고객 문의 방법</h2>
                         <ul class="howto_list">
@@ -284,10 +283,10 @@
                             </li>
                         </ul>
                     </div>
-                </section>
-                <!-- ------------------고객 문의 방법 영역 끝------------- -->
-                <!-- ----------------------- 자주 묻는 질문 영역 시작------------- -->
-                <section class="qna">
+                </div>
+                <!-- ---고객 문의 방법 영역 //-->
+                <!-- --- 자주 묻는 질문 영역 -->
+                <div class="qna">
                     <div class="qna_inner">
                         <div class="text_wrap">
                             <h2 class="sub_tit">자주 묻는 질문</h2>
@@ -322,10 +321,10 @@
                         </table>
                     </div>
                     
-                </section> 
-                <!-- ----------------------- 자주 묻는 질문 영역 끝------------- -->
-                <!-- 공장견학 영역 시작 ---------------------------------------- -->
-                <section class="factory">
+                </div> 
+                <!-- --- 자주 묻는 질문 영역 // -->
+                <!-- --- 공장견학 영역 -->
+                <div class="factory">
                     <div class="factory_inner">
                         <div class="factory_wrap">
                             <div class="text_wrap">
@@ -338,8 +337,8 @@
                             </div>
                         </div>
                     </div>
-                </section>
-                <!-- 공장견학 영역 끝---------------------------------------- -->
+                </div>
+                <!-- --- 공장견학 영역  //-->
             </div>
         </div>
         <footer id="footer" class="servicecenter_footer">

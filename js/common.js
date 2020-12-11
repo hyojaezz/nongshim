@@ -203,13 +203,13 @@ front = {
     closeBtn.on('click', function(e) {
       videoWrap.fadeOut();
       $(videoDim).fadeOut(300);
-      $('iframe').attr('src','');
+      $('iframe').attr('src','about:blank');
     });
 
     videoDim.on('click', function() {
       videoWrap.fadeOut();
       videoDim.fadeOut(300);
-      $('iframe').attr('src','');
+      $('iframe').attr('src','about:blank');
     });
   },
 

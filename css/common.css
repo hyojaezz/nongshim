@@ -72,6 +72,8 @@ body.on { overflow: hidden;}
 #wrap {min-width: 1342px;}
 
 /* ***********공통 처리********* */
+label { cursor: pointer;}
+
 
 /* 더보기 버튼  */
 .more_btn_wrap {
@@ -83,13 +85,22 @@ body.on { overflow: hidden;}
     width: 180px;
     height: 45px;
     line-height: 45px;
+    color: #e6001e;
+    background: transparent;
+    border-radius: 40px;
+    border: 1px solid #e6001e;
+    box-sizing: border-box;
+    transition: all 0.5s;
+}
+
+.more_btn_wrap .more_btn:hover {
     color: #fff;
     background: #e6001e;
-    border-radius: 20px;
+    border-color: #e6001e;
 }
 
 #container .inner .more_btn_wrap {
-    padding: 30px 0 48px;
+    padding: 30px 0 90px;
 }
 
 .main_tit {
@@ -148,14 +159,14 @@ body.on { overflow: hidden;}
     position: relative;
 }
 
-#header:after {
+#header.on:after {
     content:'';
+    position: absolute;
+    top: 89px;
+    left: 0;
     width: 100%;
     height: 1px;
     background: #e5e5e5;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .gnbbg {
@@ -189,7 +200,7 @@ body.on { overflow: hidden;}
     display: block;
     font-size: 18px;
     font-weight: 700;
-    line-height: 88px;
+    line-height: 89px;
     position: relative;
 }
 
@@ -260,7 +271,7 @@ body.on { overflow: hidden;}
 #header .util>li.nlive_btn a {
     background: url(../images/nlive_btn.png) no-repeat;
     width: 97px;
-    height: 29px;
+    height: 30px;
 }
 
 
@@ -340,7 +351,7 @@ body.on { overflow: hidden;}
     top: -200px;
     width: 100%;
     height: 200px;
-    background: #e6001e;
+    background: #1c1c1c;
     transition: all 0.3s;
 }
 
@@ -356,6 +367,8 @@ body.on { overflow: hidden;}
     border-bottom: 3px solid #fff;
     background: none;
     line-height: 37px;
+    color: #fff;
+    font-size: 24px;
 }
 
 #header .search_zone .search_wrap input::placeholder {
@@ -378,16 +391,25 @@ body.on { overflow: hidden;}
 
 /* ****************전체 메뉴 영역****************** */
 #header .sitemap_wrap {
-    width: 1197px;
+    width: 0;
     height: 100%;
     background: #fff;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 10000;
-    display: none;
+    opacity: 0;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s;
 }
+
+#header .sitemap_wrap.on {
+    width: 1197px;
+    height: 100%;
+    opacity: 1;
+}
+
+
 #header .sitemap_wrap .sitemap_wrap_bg {
     width: 1197px;
     height: 100%;
@@ -421,24 +443,39 @@ body.on { overflow: hidden;}
     width: 30px;
     height: 29px;
     background: url(../images/close_btn.png) no-repeat;
-    transition: all 0.5s;
+    transition: all 0.3s;
     z-index: 200;
+    display: none;
+    opacity: 0;
+}
+
+#header .sitemap_wrap.on .close_btn {
+    display: block;
+    opacity: 1;
 }
 
 #header .sitemap_wrap .close_btn:hover {
     transform: rotate(180deg);
 }
 
-
-#header .sitemap_wrap .sitemap_inner .sitemap {
+#header .sitemap_wrap.on .sitemap_inner .sitemap {
     width: 100%;
+
 }
+
 #header .sitemap_wrap .sitemap_inner .sitemap>li {
     width: 100%;
+    opacity: 0;
     height: 47px;
     border-bottom: 1px solid #e8e8e8;
     margin-bottom: 26px;
+    transition: all 0.5s;
 }
+
+#header .sitemap_wrap.on .sitemap_inner .sitemap>li {
+    opacity: 1;
+}
+
 
 #header .sitemap_wrap .sitemap_inner .sitemap>li>a {
     float: left;
@@ -520,7 +557,7 @@ body.on { overflow: hidden;}
     width: 20px;
     height: 20px;
     background: none;
-    color: #bebeca;
+    color: #000;
     margin-bottom: 50px;
     font-weight: 500;
     opacity: 1;
@@ -544,6 +581,14 @@ body.on { overflow: hidden;}
     background: #d41015;
     position: relative;
     z-index: 500;
+}
+
+#container .nong_tv .main_tit {
+    color: #fff;
+}
+
+#container .nong_tv .main_txt {
+    color: #fff;
 }
 
 #container .nong_tv_slider .swiper-wrapper .swiper-slide {
@@ -646,7 +691,7 @@ body.on { overflow: hidden;}
 }
 
 .nong_tv_slider .text_wrap p {
-    color: #b3b3ad;
+    color: #fff;
 }
 
 #container .nong_tv_slider .swiper-wrapper .swiper-slide img {
@@ -741,14 +786,14 @@ body.on { overflow: hidden;}
 
 #container .prcenter .inner .text_wrap .main_tit {
     color: #000;
-    transform: translateY(100px);
+    transform: translateY(50px);
     opacity: 0;
 }
 
 
 #container .prcenter .inner .text_wrap .main_txt {
     color: #999;
-    transform: translateY(100px);
+    transform: translateY(50px);
     opacity: 0;
 
 }
@@ -846,7 +891,7 @@ body.on { overflow: hidden;}
     transition: all 0.5s;
     animation: txtUp 0.5s;
     /* padding: 0 60px 0 45px; */
-    padding-left: 48px;
+    padding: 0 25px;
 }
 
 
@@ -860,7 +905,7 @@ body.on { overflow: hidden;}
     color: #fff;
     font-size: 14px;
     opacity: 1;
-    margin-top: 36px;
+    margin: 36px 0 55px;
     letter-spacing: -0.04em;
     line-height: 1.7;
     transform: translateY(100px);
@@ -870,13 +915,29 @@ body.on { overflow: hidden;}
     font-size: 14px;
     opacity: 0;
     color: #fff;
-    width: 250px;
-    text-align: right;
-    padding: 55px 46px 0 0;
     box-sizing: border-box;
-    transform: translateY(100px);
+    transform: translateY(20px);
     transition: all 0.5s;
+    width: 120px;
+    line-height: 30px;
+    border: 1px solid #fff;
+    text-align: center;
+    
 }
+
+#container .prcenter .prcenter_list li .text_wrap .detail_txt:after {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 8px;
+    background: url(../images/right_arrow.png) no-repeat;
+    vertical-align: 1px;
+}
+
+/* #container .prcenter .prcenter_list li .text_wrap .detail_txt:after {
+    content: '';
+
+} */
 
 /* hover 시에 */
 
@@ -990,13 +1051,29 @@ body.on { overflow: hidden;}
     top: 50%;
     left: 0;
     opacity: 0;
-    transform: translate(50%, -50%);
+    transform: translateY(50px);
     width: 100%;
     text-align: center;
     color: #fff;
-    transition: all 0.3s;
+    transition: all 0.5s;
     z-index: 300;
 }
+
+#container .nlive_center .inner .sns_list_wrap .sns_list li .txt_wrap:after {
+    content:'';
+    position: absolute;
+    bottom: 46px;
+    left: 50%;
+    margin-left: -14px;
+    width: 28px;
+    height: 28px;
+    background: url(../images/new_tab_btn.png)no-repeat;
+    z-index: 300;
+    opacity: 0;
+    transition: all 0.5s;
+    transform: translateY(50px);
+}
+
 
 /* **************************nlive hover 영역 */
 
@@ -1006,20 +1083,13 @@ body.on { overflow: hidden;}
 
 
 #container .nlive_center .inner .sns_list_wrap .sns_list li:hover .txt_wrap p {
-    transform: translate(0, -50%);
+    transform: translateY(-50%);
     opacity: 1;
 }
 
 #container .nlive_center .inner .sns_list_wrap .sns_list li:hover .txt_wrap:after {
-    content:'';
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    margin-left: -14px;
-    width: 28px;
-    height: 28px;
-    background: url(../images/new_tab_btn.png)no-repeat;
-    z-index: 300;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ************nlive 영역 On처리************* */
@@ -1123,7 +1193,7 @@ body.on { overflow: hidden;}
 }
 
 #container .brand_center .inner .brand_list_bottom {
-    margin-top: 48px;
+    margin: 48px 0 20px;
     width: 1200px;
     overflow: hidden;
 }
@@ -1277,11 +1347,6 @@ body.on { overflow: hidden;}
     width: 2px;
     height: 100%;
 }
-
-/* 더보기 버튼 영역 */
-#container .brand_center .inner .more_btn_wrap {
-    padding: 49px 0 46px;
-}
 /* ********브랜드 영역  끝************ */
 
 
@@ -1316,7 +1381,9 @@ body.on { overflow: hidden;}
 }
 
 #container .event_center .txt_wrap p {
-    color: #5e5c5c;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
     padding-bottom: 50px;
 }
 
@@ -1328,7 +1395,6 @@ body.on { overflow: hidden;}
     text-align: center;
     background: #ff0000;
     color: #fff;
-    border: 1px solid #999;
 }
 
 /* ********이벤트 페이지 끝 ***********/
@@ -1372,7 +1438,7 @@ body.on { overflow: hidden;}
 #container .etc_center .inner .etc_list {
     float: left;
     margin-left: 218px;
-    padding-bottom: 45px;
+    padding-bottom: 95px;
 }
 
 #container .etc_center .inner .etc_list li {
@@ -1468,9 +1534,8 @@ body.on { overflow: hidden;}
 }
 
 #footer .top_footer .inner .link li a {
-    font-size: 14px;
     color: #333;
-    line-height: 40px;
+    line-height: 60px;
 }
 
 #footer .top_footer .inner .link li.green a {
@@ -1497,7 +1562,7 @@ body.on { overflow: hidden;}
 #footer .bottom_footer .inner .info {
     width: 520px;
     float: left;
-    margin-left: 90px;
+    margin-left: 60px;
     box-sizing: border-box;
 }
 
@@ -1518,19 +1583,20 @@ body.on { overflow: hidden;}
 
 /* 패밀리사이트 */
 #footer .bottom_footer .family_site {
-    float: left;
-    width: 241px;
+    float: right;
+    width: 192px;
     height: 44px;
     padding-left: 14px;
     border: 1px solid #999;
     position: relative;
     margin-left: 233px;
     z-index: 300;
+    box-sizing: border-box;
 }
 #footer .bottom_footer .family_site>a {
     display: block;
     font-size: 14px;
-    color: #c4c4c4;
+    color: #202020;
     line-height: 44px;
     position: relative;
 }
@@ -1538,25 +1604,37 @@ body.on { overflow: hidden;}
     content: '';
     position: absolute;
     top: 50%;
-    right: 29px;
+    right: 15px;
     transform: translateY(-50%);
     background: url(../images/bottom_arrow.png) no-repeat;
     width: 10px;
     height: 5px;
 }
 
+#footer .bottom_footer .family_site.on>a:after {
+    transform: rotate(180deg);
+}
+
 #footer .bottom_footer .family_site .fs_list {
     position: absolute;
-    bottom: 44px;
+    bottom: 42px;
     left: -1px;
-    width: 241px;
+    width: 192px;
     height: 400px;
     overflow-y: scroll;
-    background: #e6001e;
+    background: #fff;
     border: 1px solid #999;
     padding-left: 14px;
+    box-sizing: border-box;
+    /* border: 0; */
+    /* transition: all 0.5s; */
     display: none;
 }
+
+/* #footer .bottom_footer .family_site.on .fs_list {
+    height: 400px;
+    border: 1px solid #999;
+} */
 
 #footer .bottom_footer .family_site .fs_list li {
     padding-bottom: 6px; 
@@ -1570,7 +1648,7 @@ body.on { overflow: hidden;}
 }
 
 #footer .bottom_footer .family_site .fs_list li a {
-    color: #fff;
+    color: #202020;
     font-weight: 400;
 }
 
@@ -1581,7 +1659,7 @@ body.on { overflow: hidden;}
 /* SNS 리스트 */
 #footer .bottom_footer .sns_list {
     float: right;
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 #footer .bottom_footer .sns_list li {
@@ -1862,7 +1940,19 @@ body.on { overflow: hidden;}
 #container.login_container .inner .input_wrap input::placeholder {
     color: #555;
     font-size: 16px;
+    opacity: 1;
 }
+
+/* IE10~ 11에서 placeholder 안보이는 현상 */
+#container.login_container .inner .input_wrap input:-ms-input-placeholder {
+    color: #555;
+    font-size: 16px;
+    opacity: 1;
+}
+
+
+
+
 
 /* ****************자동 로그인 영역******************* */
 #container.login_container .inner .login_text_wrap input[type="checkbox"] {
@@ -1920,7 +2010,6 @@ body.on { overflow: hidden;}
     bottom: 28px;
     left: 21px;
     width: 236px;
-    height: 72px;
     background: #fff;
     border: 1px solid #e6001e;
     box-sizing: border-box;
@@ -1939,7 +2028,7 @@ body.on { overflow: hidden;}
     color: #555;
     font-size: 14px;
     font-weight: 500;
-    padding: 16px 0 0 15px;
+    padding: 16px 0 16px 15px;
 }
 
 #container.login_container .inner .input_wrap input[type="submit"] {
@@ -2040,7 +2129,6 @@ body.on { overflow: hidden;}
 .account_join_container .account_join_inner {
     width: 1200px;
     margin: 0 auto;
-    height: 1000px;
 }
 
 .account_join_container .text_wrap {
@@ -2059,7 +2147,23 @@ body.on { overflow: hidden;}
     width: 90px;
     height: 143px;
     margin-right: 249px;
+    position: relative;
 }
+
+.account_join_container .step_list li:after {
+    content: '';
+    position: absolute;
+    top: 45px;
+    right: 90px;
+    width: 250px;
+    height: 1px;
+    background: #b8b8b8;
+}
+
+.account_join_container .step_list li:first-child:after {
+    display: none;
+}
+
 .account_join_container .step_list li:first-child {
     margin-left: 216px;
 }
@@ -2077,6 +2181,8 @@ body.on { overflow: hidden;}
     position: relative;
 }
 
+
+
 .account_join_container .step_list li.active .img_wrap {
     border-color: #96c11f;
 }
@@ -2093,19 +2199,29 @@ body.on { overflow: hidden;}
     background-position: 0 -0;
 }
 
-.account_join_container .step_list li.active .img_wrap:after {
-    background-position: 0 -68px;
-    width: 46px;
-}
 
 .account_join_container .step_list li:nth-child(2) .img_wrap:after {
     background-position: -61px 0;
     left: 16px;
 }
 
+.account_join_container .step_list li.active .img_wrap:after {
+    background-position: 0 -68px;
+    width: 46px;
+}
+
+.account_join_container .step_list li:nth-child(2).active .img_wrap:after {
+    width: 50px;
+    background-position: -61px -68px;
+}
+
 .account_join_container .step_list li:nth-child(3) .img_wrap:after {
     background-position: -127px 0;
     width: 42px;
+}
+
+.account_join_container .step_list li:nth-child(3).active .img_wrap:after {
+    background-position: -127px -68px;
 }
 
 .account_join_container .step_list li .text_wrap {
@@ -2125,30 +2241,53 @@ body.on { overflow: hidden;}
 
 /* 약관동의 */
 
-.account_join_container .agree {
-    padding-bottom: 100px;
-}
-
 .account_join_container .agree .text_wrap {
     overflow: hidden;
+}
+
+/* *******공통 서브 타이틀******* */
+.account_join_container .inner {
+    padding: 0 100px;
+}
+
+.account_join_container .text_wrap {
     padding: 87px 0 21px;
 }
 
-.account_join_container .agree .text_wrap h3 {
+.account_join_container .text_wrap h3 {
     font-size: 32px;
     font-weight: 500;
     color: #000;
+}
+
+.account_join_container .agree .text_wrap h3 {
     float: left;
 }
+
+.account_join_container .certification h4 {
+    color: #000;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+
+
 
 .account_join_container .agree .text_wrap .checkbox_wrap {
     float: right;
     margin-top: 26px;
 }
 
-.account_join_container .agree .agree_all_text {
-    color: #000;
+.account_join_container .agree label {
+    position: relative;
+    cursor: pointer;
 }
+
+.account_join_container .agree {
+    color: #000;
+    margin-right: 19px;
+}
+
 
 .account_join_container .agree .account_checkbox {
     display: inline-block;
@@ -2160,6 +2299,7 @@ body.on { overflow: hidden;}
     position: relative;
 }
 
+/* 모두 동의버튼 */
 .account_join_container .agree .account_checkbox:after {
     content: '';
     position: absolute;
@@ -2170,6 +2310,29 @@ body.on { overflow: hidden;}
     background: url(../images/signup/checked.png) no-repeat;
     transition: all 0.3s;
 }
+
+.account_join_container .agree.on .account_checkbox:after {
+    width: 21px;
+}
+
+
+.account_join_container .agree .agree_list li .account_checkbox:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 15px;
+    background: url(../images/signup/checked.png) no-repeat;
+    transition: all 0.3s;
+}
+
+.account_join_container .agree .agree_list li.on .account_checkbox:after {
+    width: 21px;
+}
+
+
+
 
 .account_join_container .agree input[type="checkbox"] {
     display: none;
@@ -2225,6 +2388,306 @@ float: right;
 
 
 
+/* ******** 인증하기 영역************ */
+.account_join_container .certification .certification_wrap {
+    width: 100%;
+    font-size: 0;
+    border-left: 1px solid #ddd;
+}
+
+.account_join_container .certification .certification_wrap label {
+    width: 50%;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 0;
+    box-sizing: border-box;
+    height: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.account_join_container .certification .certification_wrap label .certification_text {
+    font-size: 18px;
+    line-height: 60px;
+    color: #ccc;
+}
+
+.account_join_container .certification .certification_wrap label input[type="radio"] {
+    display: none;
+}
+
+.account_join_container .certification .certification_wrap label.on {
+    background: #e20601;
+    color: #fff;
+    font-weight: 500;
+}
+
+.account_join_container .certification .certification_wrap label.on .certification_text {
+    color: #fff;
+}
+
+
+.account_join_container .certification .certification_txt {
+    padding-top: 29px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #000;
+}
+
+.account_join_container .certification .identification_wrap {
+    margin-top: 109px;
+    display: none;
+}
+
+.account_join_container .certification .identification_wrap.on {
+    display: block;
+}
+
+/* *********************휴대폰 아이핀 인증 관련 */
+.account_join_container .certification .identification_wrap .phone_identification_wrap {
+    padding: 23px 150px 0;
+    text-align: center;
+    font-size: 0;
+}
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label {
+    display: inline-block;
+    width: 300px;
+    height: 188px;
+    color: #999;
+    position: relative;
+    margin-right: 100px;
+}
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label:nth-child(2) {
+    margin-right: 0;
+}
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label:before {
+    content: '';
+    width: 86px;
+    height: 86px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -43px;
+    background: #fff;
+    border: 3px solid #eae8ed;
+    border-radius: 50%;
+}
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label:after {
+    content: '';
+    position: absolute;
+    top: 27px;
+    left: 51%;
+    margin-left: -11px;
+    width: 22px;
+    height: 37px;
+    background: url(../images/signup/identification.png) no-repeat;
+    background-position: -6px -1px;
+}
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label:nth-child(2):after {
+    top: 31px;
+    left: 52%;
+    margin-left: -27px;
+    width: 54px;
+    height: 26px;
+    background: url(../images/signup/identification.png) no-repeat;
+    background-position: -48px -11px;
+}
+
+
+
+
+
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label input[type="radio"] {
+    display: none;
+}
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label .text_wrap {
+    padding: 116px 0 0;
+}
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label .text_wrap h5 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label .text_wrap p {
+    font-size: 14px;
+}
+
+/* 인증수단 선택 on 처리 */
+.account_join_container .certification .identification_wrap .phone_identification_wrap label.on:before {
+    border-color: #9ac327;
+}
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label.on:after {
+    background-position: -122px 0;
+}
+
+.account_join_container .certification .identification_wrap .phone_identification_wrap label.on:nth-child(2):after {
+    width: 54px;
+    height: 26px;
+    background-position: -166px -11px;
+}
+
+
+
+
+/* ***** 인증 확인 버튼 */
+.account_join_container .btn_submit_wrap {
+    text-align: center;
+    padding: 100px 0 100px;
+}
+
+.account_join_container .btn_submit_wrap.step2_btn_wrap {
+    padding-top: 78px;
+}
+
+
+.account_join_container .btn_submit {
+    display: inline-block;
+    color: #fff;
+    width: 384px;
+    text-align: center;
+    line-height: 60px;
+    background: #222;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* ************ 이메일 인증하기 영역 */
+.account_join_container .certification .identification_wrap.email_wrap {
+    display: none;
+}
+
+.account_join_container .certification .identification_wrap.email_wrap.on {
+    margin-top: 109px;
+    display: block;
+}
+
+
+
+.account_join_container .certification .identification_wrap.email_wrap .email_sub_txt {
+    margin-top: 26px;
+    color: #000;
+    font-size: 18px;
+    padding-left: 20px;
+}
+
+.account_join_container .certification .identification_wrap.email_wrap .email_writte_wrap {
+    margin-top: 36px;
+    font-size: 0;
+    vertical-align: top;
+}
+
+.account_join_container .certification .identification_wrap.email_wrap .email_writte_wrap span {
+    font-size: 18px;
+    vertical-align: -7px;
+}
+
+.account_join_container .certification .identification_wrap.email_wrap .email_writte_wrap input::placeholder {
+    color: #999;
+}
+
+.account_join_container .certification .identification_wrap.email_wrap .email_writte_wrap input {
+    border: 1px solid #ddd;
+    height: 60px;
+    padding-left: 19px;
+    outline: 0;
+    color: #000;
+}
+
+.account_join_container .certification .identification_wrap.email_wrap .email_writte_wrap input[name="email_id"] {
+    width: 250px;
+    margin-right: 5px;
+    box-sizing: border-box;
+}
+
+.account_join_container .certification .identification_wrap.email_wrap .email_writte_wrap input[name="email_address"] {
+    width: 512px;
+    margin-left: 5px;
+    box-sizing: border-box;
+}
+
+.account_join_container .certification .identification_wrap.email_wrap .email_writte_wrap .email_btn_wrap  {
+    font-size: 0;
+    display: inline-block;
+}
+
+.account_join_container .certification .identification_wrap.email_wrap .email_writte_wrap .email_btn_wrap .email_btn {
+    display: inline-block;
+    width: 200px;
+    line-height: 60px;
+    color: #fff;
+    background: #999;
+    text-align: center; 
+    font-size: 18px;
+    vertical-align: -7px;
+}
+
+/* ******************약관 동의 팝업 영역 시작*************** */
+.account_join_container .agree_pop .inner {
+    position: fixed;
+    top: 130px;
+    left: 50%;
+    width: 800px;
+    height: 700px;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 10001;
+    display: none;
+}
+
+.account_join_container .agree_pop .inner.on {
+    display: block;
+}
+
+.account_join_container .agree_pop .close_btn {
+    position: absolute;
+    top:0;
+    right: -50px;
+    width: 24px;
+    height: 25px;
+    background: url(../images/signup/close_btn.png) no-repeat;
+    text-indent: -9999px;
+    z-index: 10001;
+}
+
+.account_join_container .agree_pop .inner .agree_pop_top {
+    background: #222;
+    padding-left: 40px;
+}
+
+.account_join_container .agree_pop .inner .agree_pop_top h4 {
+    color: #fff;
+    font-size: 24px;
+    line-height: 80px;
+}
+
+.account_join_container .agree_pop .inner .agree_pop_bottom {
+    padding: 27px 0 27px 40px;
+    height: 620px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+
+}
+
+.account_join_container .agree_pop .inner .agree_pop_bottom p {
+    font-size: 14px;
+    color: #767676;
+}
+
+/* .dimm {
+    display: block;
+} */
 
 
 /* ************************약관동의 on 처리*************************** */
@@ -2232,16 +2695,20 @@ float: right;
     width: 21px;
 }
 
-.dimm.account_dimm {
-    display: none;
+.account_join_container .certification .certification_wrap.on label {
+    background: #e20601;
+    border-color: #000;
+}
+
+.account_join_container .certification .certification_wrap.on label .certification_text {
+    color: #fff;
 }
 
 
 
 
 /* *********************서브페이지 공통**************************** */
-.sub_container {
-    width: 100%;
+#container .sub_container {
     padding-top: 90px;
 }
 
@@ -2249,67 +2716,70 @@ float: right;
     position: relative;
 }
 
-.sub_container .sub_inner .text_wrap:before {
+.sub_container .lnb_wrap {
+    width: 100%;
+    background: red;
+    position: relative;
+}
+
+.sub_container .lnb_wrap:after {
+    content: '';
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(201, 199, 199, 0.7);
+    z-index: 200;
+}
+
+.sub_container .sub_visual .lnb {
+    width: 1200px;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    z-index: 300;
+}
+.sub_container .lnb_wrap .sub_visual {
+    width: 100%;
+    height: 400px;
+    background: url(../images/servicecenter/main_visual01.png) no-repeat;
+    background-position: 0 -110px;
+    background-size: cover;
+    position: relative;
+}
+
+.sub_container .lnb_wrap .sub_visual:after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000;
-    opacity: 0.4;
-    z-index: 200;
+    background: rgba(0, 0, 0, 0.4);
 }
 
-.main_tit {
-    font-size: 50px;
-    font-weight: 700;
-}
-
-.sub_container .sub_inner .text_wrap {
-    width: 100%;
-    height: 400px;
-    background: url(../images/servicecenter/main_visual01.png) no-repeat;
-    background-size: cover;
-    background-position-y: -222px;
-    position: relative;
-    z-index: 300;
-}
-
-.sub_container .sub_inner .text_wrap .sub_tit {
+.sub_container .lnb_wrap .text_wrap {
     text-align: center;
+    padding-top: 100px;
+
+}
+
+.sub_container .lnb_wrap .text_wrap .sub_tit {
     font-size: 50px;
     font-weight: 700;
     color: #fff;
-    padding-top: 216px;
     position: relative;
     z-index: 300;
 } 
 
-.sub_container .sub_menu_wrap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 400;
-    box-sizing: border-box;
-    border-bottom: 1px solid #eae8ed;
-}
 
-.sub_container .sub_menu_wrap .sub_menu {
-    width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-}
-
-.sub_container .sub_menu_wrap .sub_menu li {
+.sub_container .sub_visual .lnb li {
     display: inline-block;
     padding: 0 15px;
 }
 
-.sub_container .sub_menu_wrap .sub_menu li a {
+.sub_container .sub_visual .lnb li a {
     line-height: 60px;
     font-size: 14px;
     color: #1a1a1a;
@@ -2317,7 +2787,7 @@ float: right;
 }
 
 /* 뒤로가기 버튼 */
-.sub_container .sub_menu_wrap .sub_menu li a.back_btn {
+.sub_container .lnb_wrap .sub_visual .lnb li a.btn_back {
     display: block;
     width: 38px;
     height: 38px;
@@ -2330,15 +2800,15 @@ float: right;
     transition: all 0.5s ease-in;
 }
 
-.sub_container .sub_menu_wrap .sub_menu li a.back_btn:hover {
+.sub_container .sub_visual .lnb li a.btn_back:hover {
     background-color: #e6001e;
 }
 
-.sub_container .sub_menu_wrap .sub_menu li.active a {
+.sub_container .sub_visual .lnb li.active a {
     color: #e6001e;
 }
 
-.sub_container .sub_menu_wrap .sub_menu li.active a:before {
+.sub_container .sub_visual .lnb li.active a:before {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -2348,7 +2818,21 @@ float: right;
     background: #e6001e;
 }
 
+.main_tit {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.star {
+    color: #e20601;
+    font-size: 14px;
+}
+
 /* *********************고객센터 영역 시작********** */
+.servicecenter_container .process_inner {
+    width: 1200px;
+    margin: 0 auto;
+}
 .servicecenter_container .process_inner .sub_tit {
     padding-top: 74px;
 }
@@ -2394,7 +2878,7 @@ float: right;
     width: 233px;
     height: 288px;
     background: #fff;
-    border: 1px solid #7c7c7c;
+    border: 1px solid #ddd;
     position: relative;
     margin-right: 18px;
 }
@@ -2406,32 +2890,43 @@ float: right;
 .servicecenter_container .howto .howto_list li:before {
     content: '';
     position: absolute;
-    top: 41px;
+    top: 35px;
     left: 50%;
-    margin-left: -42px;
-    width: 84px;
-    height: 81px;
-    background: url(../images/servicecenter/customer_inquiry_icon.png) no-repeat;
+    margin-left: -40px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ddd;
 }
 
-.servicecenter_container .howto .howto_list li:nth-child(2):before {
-    width: 84px;
-    height: 67px;
-    background-position-x: -251px;
+.servicecenter_container .howto .howto_list li:after {
+    content: '';
+    position: absolute;
+    top: 53px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 47px;
+    height: 45px;
+    background: url(../images/servicecenter/customer_inquiry_icon1.png) no-repeat;
+    background-position: -423px, 0;
 }
 
-.servicecenter_container .howto .howto_list li:nth-child(3):before {
-    width: 84px;
-    height: 75px;
-    background-position-x: -506px;
+.servicecenter_container .howto .howto_list li:nth-child(1):after {
+    width: 43px;
+    height: 43px;
+    background-position: 0;
 }
 
-.servicecenter_container .howto .howto_list li:nth-child(4):before {
-    width: 84px;
-    height: 81px;
-    background-position-x: -761px;
+.servicecenter_container .howto .howto_list li:nth-child(2):after {
+    height: 48px;
+    background-position-x: -140px;
 }
 
+.servicecenter_container .howto .howto_list li:nth-child(3):after {
+    width: 47px;
+    height: 43px;
+    background-position-x: -281px;
+}
 
 .servicecenter_container .howto .howto_list li .txt_wrap {
     padding-top: 146px;
@@ -2451,7 +2946,7 @@ float: right;
     padding-bottom: 10px;
 }
 .servicecenter_container .howto .howto_list li .txt_wrap .sub_txt2 {
-    font-size: 16px;
+    font-size: 14px;
     color: #999;
     line-height: 1.3;
 }
@@ -2482,6 +2977,7 @@ float: right;
     font-size: 20px;
     float: right;
     margin-top: 16px;
+    font-size: 14px;
 }
 
 .servicecenter_container .qna_inner .text_wrap .more_btn:after {
@@ -2491,7 +2987,6 @@ float: right;
     height: 11px;
     background: url(../images/servicecenter/more_right.png) no-repeat;
     margin-left: 10px;
-    vertical-align: 2px;
 }
 
 .servicecenter_container .qna_inner table {
@@ -2637,4 +3132,456 @@ float: right;
 /* *********** 고객 문의 영역 footer 색상 중복되어 따로 클래스 처리 */
 #footer.servicecenter_footer .top_footer {
     background: #d2cece;
+}
+
+
+
+/* **************** 회원가입 작성영역 */
+.account_writte .agree_step02 .text_wrap {
+    position: relative;
+}
+
+.account_writte .agree_step02 .text_wrap:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #222;
+    position: absolute;
+}
+
+.account_writte .agree_step02 .text_wrap p{
+    text-align: right;
+    margin-top: 26px;
+}
+.account_writte .agree_step02 .inner {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.account_writte .btn_confirm {
+    display: inline-block;
+    width: 101px;
+    line-height: 60px;
+    color: #fff;
+    background: #222;
+    font-size: 15px;
+    font-weight: 500;
+    vertical-align: -6px;
+    text-align: center;
+    border: 0;
+    outline: 0;
+}
+
+/* 회원가입 폼 공통스타일 */
+.agree_step02 .table_wrap {
+    padding: 0 100px;
+    margin-top: 65px;
+}
+.account_writte .essential_table input {
+    width: 100%;
+    outline: 0;
+    height: 60px;
+    border: 1px solid #ddd;
+    padding-left: 15px;
+    color: #000;
+    font-size: 14px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.account_writte .essential_table tr th {
+    vertical-align: top;
+    padding-top: 18px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    color: #222;
+}
+
+.account_writte .essential_table tr td {
+    vertical-align: top;
+    padding-bottom: 22px;
+}
+
+.account_writte .essential_table .id_form {
+    font-size: 0;
+}
+
+
+/* 회원가입 스텝 2 설명문구 포함되어있는 내용(회원가입 스텝2 공통)*/
+.account_writte .essential_table .descrip_form input {
+    width: 496px;
+}
+
+.account_writte .essential_table .descrip_form p {
+    font-size: 14px;
+    margin-top: 6px;
+    color: #000;
+}
+
+.account_writte .essential_table .descrip_form td {
+    padding-bottom: 16px;
+}
+
+/* 비밀번호 영역 */
+.account_writte .essential_table .descrip_form .password_form input {
+    width: 100%;
+}
+
+/* 생년월일 영역 */
+.account_writte .essential_table .birthday_form select {
+    width: 85px;
+    height: 60px;
+    color: #000;
+    outline: 0;
+    border-color: #ddd;
+}
+
+.account_writte .essential_table .birthday_form .birthday_txt {
+    font-size: 14px;
+    margin: 0 15px;
+    color: #000;
+}
+
+/* 이메일 영역 */
+.account_writte .essential_table .email_form input {
+    width: 116px;
+}
+
+.account_writte .essential_table .email_form .email_domain_address {
+    width: 263px;
+}
+
+.account_writte .essential_table .email_form select[name="email_select"] {
+    width: 150px;
+    height: 60px;
+    margin-left: 15px;
+    padding-left: 15px;
+    color: #000;
+    outline: 0;
+    border-color: #ddd;
+}
+
+.account_writte .essential_table .email_form .email_txt {
+    margin: 0 15px;
+    font-size: 14px;
+    color: #000;
+}
+
+/* 추가정보 영역 */
+/* .account_writte .additional_table tr {
+    vertical-align: top;
+} */
+
+.account_writte .additional_table .zip_code input {
+    background: #e9ecef;
+    border: 0;
+    cursor: unset;
+}
+
+.account_writte .additional_table .zip_code input[name="zipCode"] {
+    width: 350px;
+}
+
+.account_writte .additional_table .btn_confirm {
+    margin-left: -4px;
+    width: 138px;
+    vertical-align: top;
+}
+
+.account_writte .additional_table .zip_code input[name="addressDetailCode"] {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+}
+
+/* 추천인 아이디 영역 */
+.account_writte .additional_table .freind_id input {
+    width: 350px;
+}
+
+/* 정보수신동의 */
+.account_writte .additional_table .receiving_consent label {
+    display: block;
+    padding-top: 6px;
+}
+
+.account_writte .additional_table .receiving_consent .receiving_txt {
+    vertical-align: top;
+    font-size: 14px;
+    color: #000;
+}
+
+.account_writte .additional_table .receiving_consent label:before {
+    content:'';
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background: #fff;
+    border: 1px solid #9b9b9b;
+    vertical-align: 1px;
+}
+
+.account_writte .additional_table .receiving_consent label:after {
+    content:'';
+    position: absolute;
+    top: 7px;
+    left: 0;
+    background: url(../images/signup/checked.png) no-repeat;
+    width: 0;
+    height: 15px;
+    transition: all 0.3s;
+}
+
+/* 선택박스 체크박스 on 처리 */
+.account_writte .additional_table .receiving_consent .receiving_check.on:after {
+    width: 21px;
+}
+
+.account_writte .additional_table .receiving_txt2 {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #000;
+}
+
+
+/* ********* 회원가입 완료********* */
+.account_join_container .agree.agree_step03 .inner {
+    text-align: center;
+}
+
+.account_join_container .agree.agree_step03 .inner .text_wrap {
+    position: relative;
+    margin-bottom: 87px;
+}
+
+.account_join_container .agree.agree_step03 .inner .text_wrap:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #222;
+}
+
+/* 회원가입 완료 문구 영역 */
+.account_join_container .agree.agree_step03 .registration_wrap {
+    letter-spacing: -0.04em;
+}
+
+.account_join_container .agree.agree_step03 .registration_wrap .reg_tit {
+    font-size: 40px;
+    font-weight: 500;
+    color: #000;
+}
+
+.account_join_container .agree.agree_step03 .registration_wrap .reg_txt {
+    margin-top: 5px;
+    font-size: 18px;
+    color: #999;
+    line-height: 1.3;
+    padding-bottom: 115px;
+    position: relative;
+}
+
+.account_join_container .agree.agree_step03 .registration_wrap .reg_txt:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -40px;
+    width: 80px;
+    height: 80px;
+    background: url(../images/signup/congratulations.png) no-repeat;
+}
+
+.account_join_container .agree.agree_step03 .registration_wrap .id_profile {
+    color: #999;
+    display: inline-block;
+    margin-top: 26px;
+    font-weight: 500;
+    line-height: 30px;
+    padding-left: 56px;
+    position: relative;
+}
+
+.account_join_container .agree.agree_step03 .registration_wrap .id_profile:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 30px;
+    background: url(../images/signup/id_profile.png) no-repeat;
+}
+
+.account_join_container .agree.agree_step03 .registration_wrap .id_profile strong {
+    color: #e6001e;
+    font-weight: 700;
+}
+
+.account_success .btn_submit_wrap {
+    text-align: center;
+    padding: 50px 0 100px;
+}
+
+.account_success .btn_submit_wrap .btn_submit {
+    display: inline-block;
+    width: 285px;
+    height: 60px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    color: #999;
+}
+
+.account_success .btn_submit_wrap .btn_submit.btn_login {
+    border: 0;
+    background: #e6001e;
+    color: #fff;
+    margin-left: 30px;
+}
+
+/* 백산수, 코코이찌방야 배너 영역 */
+.account_success .banner_wrap {
+    margin-bottom: 108px;
+}
+
+.account_success .banner_wrap .right_banner {
+    margin-left: 30px;
+}
+
+/* 연혁 */
+.history_container .lnb_wrap .sub_visual {
+    background-image: url(../images/history/sub_visual.png);
+}
+
+.history_container .history {
+    background: #fff;
+    padding: 75px 0 100px;
+    /* overflow: hidden; */
+}
+
+.history_container .history .inner {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.history_container .history .history_menu {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.history_container .history .history_menu li {
+    display: inline-block;
+    padding-right: 8px;
+}
+
+.history_container .history .history_menu li:after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 28px;
+    background: #ccc;
+    vertical-align: -3px;
+    margin-left: 8px;
+}
+
+.history_container .history .history_menu li:last-child:after {
+    display: none;
+}
+
+.history_container .history .history_menu li a {
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+}
+
+.history_container .history .history_menu li.active a {
+    color: #000;
+}
+
+.history_container .history .history_list {
+    padding: 0 0 23px 49px;
+    margin-top: 41px;
+    width: calc(50% - 49px);
+    float: right;
+    /* background: red; */
+    position: relative;
+}
+
+.history_container .history .history_list:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: #e3e3e3;
+    z-index: 100;
+}
+
+.history_container .history .history_list>li{
+    padding-bottom: 26px;
+    position: relative;
+}
+
+.history_container .history .history_list .history_img:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -655px;
+    background: url(../images/history/history_img_1.jpg) no-repeat;
+    width: 500px;
+    height: 700px;
+    transition: all 1s ease-in-out;
+    transform: translateX(-110%);
+}
+
+.history_container .history .history_list .hs_img2016:before {
+    background-image: url(../images/history/history_img_2.jpg);
+}
+
+.history_container .history .history_list .hs_img2012:before {
+    background-image: url(../images/history/history_img_3.jpg);
+}
+
+.history_container .history .history_list .history_img.on:before {
+    transform: translateX(0%);
+}
+
+
+.history_container .history .history_list .year_txt {
+    font-size: 26px;
+    color: #000;
+    font-weight: 700;
+    padding: 0 0 18px 10px;
+    position: relative;
+}
+
+.history_container .history .history_list .year_txt:before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: -50px;
+    width: 8px;
+    height: 16px;
+    background: url(../images/history/history_circle.png) no-repeat;
+    z-index: 200;
+}
+
+.history_container .history .history_list .depth2 li {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 4px;
+}
+
+.history_container .history .history_list .depth2 li:before {
+    content: '-';
+    display: inline-block;
+    margin-right: 10px;
 }
